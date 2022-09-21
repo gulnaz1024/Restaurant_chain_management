@@ -23,6 +23,7 @@ public class Main {
         String name = "";
         String surname = "";
         boolean wrongInput = false;
+
         try (Scanner scanner = new Scanner(System.in)) {
             do {
                 if (wrongInput) {
@@ -37,15 +38,22 @@ public class Main {
                 wrongInput = true;
             } while (name.trim().isEmpty() || surname.trim().isEmpty());
 
-            preparedStatement.setString(1, "dgfg");
-            preparedStatement.setString(2, "dgfg");
+
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, surname);
             preparedStatement.setInt(3, 1);
             preparedStatement.setString(4, "dgfg");
             preparedStatement.execute();
+
+
         }
 
-
-        Employee a = new Employee("dim", "rr", 1, "password");
-        a.printInfo();
+        String SELECT_id = "SELECT id FROM employee WHERE name = \'" + name + "\'";
+        ResultSet result = statement.executeQuery(SELECT_id);
+        while (result.next()) {
+            System.out.println("Регистрация прошла успешно! вот ваш логин: " + result.getInt(1));
+        }
+//        Employee a = new Employee("dim", "rr", 1, "password");
+//        a.printInfo();
     }
 }
