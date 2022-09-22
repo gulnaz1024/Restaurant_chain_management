@@ -10,7 +10,7 @@ public class Main {
     private static final String DB_URL = "jdbc:postgresql://localhost:5432/shopme";
 
 
-    private static final String INSERT_NEW = "INSERT INTO employee ( name,surname,login,password) VALUES(?,?,?,?)";
+    private static final String INSERT_NEW = "INSERT INTO employee (name,surname,login,password) VALUES(?,?,?,?)";
 
     private static final String DD = "DELETE FROM employee WHERE login = ?";
 
@@ -45,10 +45,19 @@ public class Main {
                 wrongInput = true;
             } while (name.trim().isEmpty() || surname.trim().isEmpty());
 
+
+          /*  выберите статус:
+            1 - HR
+            2 - Manager
+            3 - Seller
+            */
+
+
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, surname);
             preparedStatement.setInt(3, login);
             preparedStatement.setString(4, password);
+            //preparedStatement.setString(5, employeeStatus);
             preparedStatement.execute();
 
             String SELECT_id = "SELECT id FROM employee WHERE name = \'" + name + "\' AND surname = \'" + surname + "\'";
@@ -62,8 +71,14 @@ public class Main {
             statement.executeUpdate(UPDATE_LOGIN);
 
 
-//        Employee a = new Employee("dim", "rr", 1, "password");
-//        a.printInfo();
-        }
+        /*Employee a = new Employee("dim", "rr", 1, "password");
+        a.printInfo();*/
+
+       // Inherited class
+       /* Director a = new Director("dim", "rr", 1, "password", "director");
+        a.printInfo();
+        a.printStatus();*/
+
+       }
     }
 }

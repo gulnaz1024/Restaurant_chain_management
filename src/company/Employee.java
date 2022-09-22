@@ -15,6 +15,6 @@ public class Employee {
     }
 
     public void printInfo() {
-        System.out.print(this.name);
+        System.out.println(this.name);
     }
 }
