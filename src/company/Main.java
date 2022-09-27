@@ -21,10 +21,10 @@ public class Main {
 
         boolean wrongInput = false;
 
-        try (Scanner scanner = new Scanner(System.in)) {
+        Scanner scanner = new Scanner(System.in);
             do {
                 if (wrongInput) {
-                    System.out.println("Пароль или Логин заданы не верно! ");
+                    System.out.println("\nПароль или логин заданы не верно! Попробуйте еще раз.\n");
                 }
 
                 System.out.print("Введите имя: ");
@@ -39,6 +39,7 @@ public class Main {
                 wrongInput = true;
             } while (name.trim().isEmpty() || surname.trim().isEmpty());
 
+
             //insert to BD
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, surname);
@@ -51,13 +52,15 @@ public class Main {
             ResultSet result = statement.executeQuery(SELECT_id);
             while (result.next()) {
                 login = result.getInt(1);
-                System.out.println("Регистрация прошла успешно! \nЛогин сотрудника: " + result.getInt(1));
-                System.out.println("Пароль сотрудника: " + password);
+                System.out.println("\nРегистрация прошла успешно! \nЛогин сотрудника: " + result.getInt(1));
+                System.out.println("Пароль сотрудника: " + password + "\n");
             }
 //            preparedStatement.executeUpdate();
             String UPDATE_LOGIN = "UPDATE employee SET login = \'" + login + "\' WHERE login = 0";
             statement.executeUpdate(UPDATE_LOGIN);
-        }
+
+
+
         return password;
     }
 
@@ -78,7 +81,7 @@ public class Main {
                     login = Integer.parseInt(strLogin);
                     break;
                 } else {
-                    System.out.println("Ваш логин должен состоять только из цифр.");
+                    System.out.println("Ваш логин должен состоять только из цифр.\n");
                 }
             }
 
@@ -102,7 +105,7 @@ public class Main {
                 System.out.println("Вы успешно вошли в систему.");
                 break;
             } else {
-                System.out.println("Пароль или логин введены не верно! Попробуйте еще раз. ");
+                System.out.println("\nПароль или логин введены не верно! Попробуйте еще раз.\n");
             }
         }
         return userID;
@@ -113,12 +116,13 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception {
-       /* Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        /*Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
         Statement statement = connection.createStatement();
 
         Director a = new Director("yio", "qewrw",89,"ghjk","director");
         a.changePassword();*/
 
+        registrateNewEmployee();
         authorize();
 
 

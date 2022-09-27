@@ -10,7 +10,6 @@ public class Director extends Employee {
 
     public Director(String name, String surname, int login, String password, String status) {
         super(name, surname, login, password);
-        this.status = status;
     }
 
 
