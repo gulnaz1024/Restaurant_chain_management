@@ -51,7 +51,8 @@ public class Main {
             ResultSet result = statement.executeQuery(SELECT_id);
             while (result.next()) {
                 login = result.getInt(1);
-                System.out.println("Регистрация прошла успешно! Ваш логин: " + result.getInt(1));
+                System.out.println("Регистрация прошла успешно! \nЛогин сотрудника: " + result.getInt(1));
+                System.out.println("Пароль сотрудника: " + password);
             }
 //            preparedStatement.executeUpdate();
             String UPDATE_LOGIN = "UPDATE employee SET login = \'" + login + "\' WHERE login = 0";
