@@ -7,7 +7,7 @@ public class Main {
     static final String DB_USERNAME = "postgres";
     static final String DB_PASSWORD = "2001";
     static final String DB_URL = "jdbc:postgresql://localhost:5432/shopme";
-    private static final String INSERT_NEW = "INSERT INTO employee (name,surname,login,password) VALUES(?,?,?,?)";
+    private static final String INSERT_NEW = "INSERT INTO employee (name,surname,login,password,status) VALUES(?,?,?,?,?)";
     private static final String DD = "DELETE FROM employee WHERE login = ?";
 
     public static String registrateNewEmployee() throws SQLException {
@@ -16,7 +16,8 @@ public class Main {
         PreparedStatement preparedStatement = connection.prepareStatement(INSERT_NEW);
         String name = "",
                 surname = "",
-                password = "";
+                password = "",
+                status = "";
         int login = 0;
 
         boolean wrongInput = false;
@@ -36,6 +37,9 @@ public class Main {
                 System.out.print("Придумайте пароль: ");
                 password = scanner.nextLine();
 
+                System.out.print("Введите статус: ");
+                status = scanner.nextLine();
+
                 wrongInput = true;
             } while (name.trim().isEmpty() || surname.trim().isEmpty());
 
@@ -45,7 +49,7 @@ public class Main {
             preparedStatement.setString(2, surname);
             preparedStatement.setInt(3, login);
             preparedStatement.setString(4, password);
-            //preparedStatement.setString(5, employeeStatus);
+            preparedStatement.setString(5, status);
             preparedStatement.execute();
 
             String SELECT_id = "SELECT id FROM employee WHERE name = \'" + name + "\' AND surname = \'" + surname + "\'";
