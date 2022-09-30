@@ -10,7 +10,7 @@ public class Main {
     private static final String INSERT_NEW = "INSERT INTO employee (name,surname,login,password,status) VALUES(?,?,?,?,?)";
     private static final String DD = "DELETE FROM employee WHERE login = ?";
 
-    public static String registrateNewEmployee() throws SQLException {
+    public static String registrateEmployee() throws SQLException {
         Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
         Statement statement = connection.createStatement();
         PreparedStatement preparedStatement = connection.prepareStatement(INSERT_NEW);
@@ -28,7 +28,7 @@ public class Main {
                     System.out.println("\nПароль или логин заданы не верно! Попробуйте еще раз.\n");
                 }
 
-                System.out.print("Введите имя: ");
+                System.out.print("\nВведите имя: ");
                 name = scanner.nextLine();
 
                 System.out.print("Введите фамилию: ");
@@ -107,6 +107,7 @@ public class Main {
 
             if (login == userID && password.equals(userPassword)) {
                 System.out.println("Вы успешно вошли в систему.");
+
                 break;
             } else {
                 System.out.println("\nПароль или логин введены не верно! Попробуйте еще раз.\n");
@@ -120,25 +121,64 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception {
-        /*Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
         Statement statement = connection.createStatement();
+//        Director a = new Director("dim","shai", 64,"HR");
+//        a.showMarketingSalaryBudget();
 
-        Director a = new Director("yio", "qewrw",89,"ghjk","director");
-        a.changePassword();*/
+        int authorizedUserID = authorize();
 
-        registrateNewEmployee();
-        authorize();
+        String SELECT_status = "SELECT status FROM employee WHERE id = \'" + authorizedUserID + "\'";
+        ResultSet result = statement.executeQuery(SELECT_status);
+        String status = "";
+        result.next();
+        status = result.getString(1);
+
+        if (status.equals("director")) {
+            String SELECT_All = "SELECT * FROM employee WHERE id = \'" + authorizedUserID + "\'";
+            ResultSet resultAll = statement.executeQuery(SELECT_All);
+            resultAll.next();
+            String nameDirector = resultAll.getString(2);
+            String surnameDirector = resultAll.getString(3);
+            int loginDirector = resultAll.getInt(4);
+            Director director = new Director(nameDirector, surnameDirector, loginDirector, status);
+
+            int chosenAction = director.printMenu();
+            while(true) {
+                switch (chosenAction) {
+                    case 1: director.showCoverageAreas();
+                        break;
+                    case 2: director.showMarketingSalaryBudget();
+                        break;
+                    case 49: director.registrateNewEmployee();
+                        break;
+                    case 50: director.changePassword();
+                        break;
+                    case 0:
+                        System.out.println("\nПрограмма завершена, мы будем рады вашему возвращению!");
+                        System.exit(0);
+                }
+
+                Scanner s = new Scanner(System.in);
+                System.out.print("\nНажмите Enter для продолжения...");
+                s.nextLine();
+
+
+                chosenAction = director.printMenu();
+            }
 
 
 
 
-//        String SELECT_id = "SELECT surname FROM employee WHERE name = 'Gulnaz'";
-//        ResultSet result = statement.executeQuery(SELECT_id);
-//        result.next();
-//        System.out.println(result.getString(1));
-//        while (result.next()) {
-//            System.out.println("Регистрация прошла успешно! вот ваш логин: " + result.getString(2));
-//        }
+
+
+
+        }
+
+
+
+
+
 
 
     }

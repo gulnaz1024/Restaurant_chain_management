@@ -10,13 +10,17 @@ public class Employee {
     private String name;
     private String surname;
     private int login;
-    private String password;
+    public String status;
+    public int wage = 1000000;
 
-    public Employee(String name, String surname, int login, String password) {
+    public int marketingBudget = 3000000;
+
+
+    public Employee(String name, String surname, int login, String status) {
         this.name = name;
         this.surname = surname;
         this.login = login;
-        this.password = password;
+        this.status = status;
     }
 
     public void changePassword() throws SQLException {
@@ -28,14 +32,19 @@ public class Employee {
 //        result.next();
 //        System.out.println(result.getString(1));
 //        "UPDATE employee SET login = \'" + login + "\' WHERE login = 0";
-
-        password = scanner.nextLine();
-        String UPDATE_password = "UPDATE employee SET password = \'" + password + "\' WHERE name = 'Gulnaz'";
+        //String SELECT_ID = "SELECT id FROM employee WHERE login = \'" + login + "\' AND password = \'" + password + "\'";
+        System.out.print("\nВведите новый пароль: ");
+        String password = scanner.nextLine();
+        String UPDATE_password = "UPDATE employee SET password = \'" + password + "\' WHERE name = \'" + this.name + "\' AND surname = \'" + this.surname + "\' AND login = \'" + this.login + "\'"   ;
         statement.executeUpdate(UPDATE_password);
         System.out.println("Ваш пароль успешно изменен.");
     }
 
-    public void printInfo() {
-        System.out.println(this.name);
+    public void printWage() {
+        System.out.println(wage);
+    }
+
+    public void printMarketingBudget() {
+        System.out.println(marketingBudget);
     }
 }

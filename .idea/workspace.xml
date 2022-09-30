@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c7bbc1fc-9032-40c1-8776-0514c09782ce" name="Changes" comment="fix registration bug">
+    <list default="true" id="c7bbc1fc-9032-40c1-8776-0514c09782ce" name="Changes" comment="added status in DB">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/Director.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Director.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Employee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +69,11 @@
       <workItem from="1664265123804" duration="4170000" />
       <workItem from="1664295368376" duration="7569000" />
       <workItem from="1664303079091" duration="35000" />
-      <workItem from="1664335226968" duration="1492000" />
+      <workItem from="1664335226968" duration="3770000" />
+      <workItem from="1664342655611" duration="2844000" />
+      <workItem from="1664350827367" duration="5589000" />
+      <workItem from="1664435554370" duration="1157000" />
+      <workItem from="1664532757979" duration="12036000" />
     </task>
     <task id="LOCAL-00001" summary="Class works, add to DB works">
       <created>1663783184616</created>
@@ -118,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664303110225</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added status in DB">
+      <created>1664337416592</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1664337416592</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,7 +156,8 @@
     <MESSAGE value="authorization works" />
     <MESSAGE value="add password output to registration" />
     <MESSAGE value="fix registration bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix registration bug" />
+    <MESSAGE value="added status in DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="added status in DB" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
