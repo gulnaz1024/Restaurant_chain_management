@@ -16,9 +16,6 @@ public class Employee {
     public int instagramBudget;
     public int facebookBudget;
     public int youtubeBudget;
-
-
-
     public int budgetMarketing;
 
     public Employee(String name, String surname, int login, String status, int salary) {
@@ -54,17 +51,16 @@ public class Employee {
         while(result.next()){
             this.salary += result.getInt(1);
         }
-
         return this.salary;
-
     }
+
     public void printWage() {
         System.out.println(this.salary);
     }
 
 
     public void showCoverageAreas() {
-        System.out.println("Зона охвата клиентами для Бишкека: 13%");
+        System.out.println("\nЗона охвата клиентами для Бишкека: 13%");
         System.out.println("Зона охвата клиентами для Джаллабада: 17%");
         System.out.println("Зона охвата клиентами для Оша: 21%");
         System.out.println("Зона охвата клиентами для Нарына: 54%");

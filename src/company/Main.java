@@ -222,6 +222,39 @@ public class Main {
             }
 
 
+        }else if (userStatus.equals("manager")) {
+            Manager manager = new Manager(userName, userSurname, userLogin, userStatus, userSalary);
+
+            int chosenAction = manager.printMenuManager();
+            while (true) {
+                switch (chosenAction) {
+                    case 1:
+                        manager.showEmployees();
+                        break;
+                    case 2:
+                        manager.giveTasks();
+                        break;
+                    case 3:
+                        manager.showTableTasks();
+                        break;
+                    case 4:
+                        manager.showCoverageAreas();
+                        break;
+
+                    case 50:
+                        manager.showTasks();
+                        break;
+                    case 0:
+                        System.out.println("\nПрограмма завершена, мы будем рады вашему возвращению!");
+                        System.exit(0);
+                }
+
+                Scanner s = new Scanner(System.in);
+                System.out.print("\nНажмите Enter для продолжения...");
+                s.nextLine();
+
+                chosenAction = manager.printMenuManager();
+            }
         }
     }
 }
