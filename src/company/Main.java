@@ -18,7 +18,7 @@ public class Main {
                 password = "",
                 status = "";
         int login = 0,
-            salary = 777;
+            livingWageSalary = 6900;
 
         boolean wrongInput = false;
 
@@ -40,18 +40,6 @@ public class Main {
             System.out.print("Введите статус: ");
             status = scanner.nextLine();
 
-            while (true) {
-                System.out.print("Введите заработную плату: ");
-                String strSalary = scanner.nextLine();
-
-                if (isNumeric(strSalary)) {
-                    salary = Integer.parseInt(strSalary);
-                    break;
-                } else {
-                    System.out.println("\nВводимое значение должно состоять только из цифр.\n");
-                }
-            }
-
             wrongInput = true;
         } while (name.trim().isEmpty() || surname.trim().isEmpty());
 
@@ -62,7 +50,7 @@ public class Main {
         preparedStatement.setInt(3, login);
         preparedStatement.setString(4, password);
         preparedStatement.setString(5, status);
-        preparedStatement.setInt(6, salary);
+        preparedStatement.setInt(6, livingWageSalary);
         preparedStatement.execute();
 
         String SELECT_id = "SELECT id FROM employee WHERE name = \'" + name + "\' AND surname = \'" + surname + "\'";
