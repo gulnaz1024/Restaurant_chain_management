@@ -24,6 +24,8 @@ public class Director extends Employee {
         System.out.println("5 - Показать общий бюджет необходимый для зарплаты");
         System.out.println("6 - Повысить зарплату сотруднику: ");
         System.out.println("7 - Понизить зарплату сотруднику: ");
+        System.out.println("8 - Показать список оборудований для строительства объектов ");
+
 
         System.out.println("48 - Выделить бюджет для маркетинга: ");
         System.out.println("49 - Регистрация нового сотрудника");
@@ -33,10 +35,21 @@ public class Director extends Employee {
         int choice = scanner.nextInt();
         return choice;
     }
-    public void showAllBudget() throws Exception{
-//        System.out.println("бюджет для заработной платы,");
+    public void showAllBudget() throws SQLException{
+        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Statement statement = connection.createStatement();
+        Scanner scanner = new Scanner(System.in);
+
+        String SELECT_salary = "SELECT money FROM budget WHERE name_category = 'salary'";
+        ResultSet resultS = statement.executeQuery(SELECT_salary);
+        resultS.next();
+       System.out.println("\nбюджет для заработной платы: " + resultS.getInt(1));
+
+        String SELECT_marketing = "SELECT money FROM budget WHERE name_category = 'marketing'";
+        ResultSet resultM = statement.executeQuery(SELECT_marketing);
+        resultM.next();
+        System.out.println("бюджет для маркетинга: " + resultM.getInt(1));
 //        System.out.println("бюджет для маркетинга.");
-        System.out.println("!!! UNDER CONSTRUCTION !!!");
     }
 
     public void showSalaryBudget() throws Exception{
@@ -50,7 +63,7 @@ public class Director extends Employee {
     }
 
     @Override
-    public void showBudgetForEachCategory() {
+    public void showBudgetForEachCategory() throws SQLException{
         super.showBudgetForEachCategory();
     }
 
@@ -107,12 +120,20 @@ public class Director extends Employee {
     }
 
     @Override
-    public int allocateBudget() {
-        return super.allocateBudget();
+    public void allocateBudget() throws SQLException {
+        super.allocateBudget();
     }
 
     @Override
-    public void showBudgetMarketing() {
+    public void showBudgetMarketing() throws SQLException {
         super.showBudgetMarketing();
+    }
+
+    public void showeQuipment(){
+        System.out.println("\nCписок оборудований для строительства объектов:\n");
+        System.out.println("плиты");
+        System.out.println("жарочные шкафы");
+        System.out.println("пароконвектоматы");
+        System.out.println("опциональное оборудование");
     }
 }

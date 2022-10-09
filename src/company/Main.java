@@ -60,8 +60,8 @@ public class Main {
             System.out.println("Пароль сотрудника: " + password + "\n");
         }
 //            preparedStatement.executeUpdate();
-        String UPDATE_LOGIN = "UPDATE employee SET login = \'" + login + "\' WHERE login = 0";
-        statement.executeUpdate(UPDATE_LOGIN);
+            String UPDATE_LOGIN = "UPDATE employee SET login = \'" + login + "\' WHERE login = 0";
+            statement.executeUpdate(UPDATE_LOGIN);
 
 
         return password;
@@ -165,6 +165,9 @@ public class Main {
                     case 7:
                         director.salaryDecrease();
                         break;
+                    case 8:
+                        director.showeQuipment();
+                        break;
                     case 48:
                         director.allocateBudget();
                         break;
@@ -254,6 +257,35 @@ public class Main {
                 s.nextLine();
 
                 chosenAction = manager.printMenuManager();
+            }
+        } else if (userStatus.equals("worker")) {
+            Worker worker = new Worker(userName, userSurname, userLogin, userStatus, userSalary);
+
+            int chosenAction = worker.printMenuWorker();
+            while (true) {
+                switch (chosenAction) {
+                    case 1:
+                        worker.showTasksToDo();
+                        break;
+                    case 2:
+                        worker.showTasksDone();
+                        break;
+                    case 3:
+                        worker.showTasksINProgress();
+                        break;
+                    case 4:
+                        worker.showEmployeeSalary();
+                        break;
+                    case 0:
+                        System.out.println("\nПрограмма завершена, мы будем рады вашему возвращению!");
+                        System.exit(0);
+                }
+
+                Scanner s = new Scanner(System.in);
+                System.out.print("\nНажмите Enter для продолжения...");
+                s.nextLine();
+
+                chosenAction = worker.printMenuWorker();
             }
         }
     }

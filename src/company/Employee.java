@@ -9,14 +9,10 @@ public class Employee {
 
     private String name;
     private String surname;
-    private int login;
+    public int login;
     public String status;
     public int salary;
 
-    public int instagramBudget;
-    public int facebookBudget;
-    public int youtubeBudget;
-    public int budgetMarketing;
 
     public Employee(String name, String surname, int login, String status, int salary) {
         this.name = name;
@@ -51,6 +47,9 @@ public class Employee {
         while(result.next()){
             this.salary += result.getInt(1);
         }
+        String UPDATE_salary = "UPDATE budget SET money = \'" + this.salary + "\' WHERE name_category = 'salary'";
+        statement.executeUpdate(UPDATE_salary);
+
         return this.salary;
     }
 
@@ -68,7 +67,32 @@ public class Employee {
         System.out.println("Зона охвата клиентами для Баткена: 8%");
     }
 
-    public void showBudgetForEachCategory(){
+
+
+    public void showBudgetMarketing() throws SQLException{
+        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Statement statement = connection.createStatement();
+        String SELECT_marketingBudget = "SELECT money FROM budget WHERE name_category = 'marketing'";
+        ResultSet resultB = statement.executeQuery(SELECT_marketingBudget);
+        resultB.next();
+        System.out.println("\nОбщий бюджет маркетинга: "+ resultB.getInt(1));
+    }
+
+
+    public void allocateBudget() throws SQLException{
+        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Statement statement = connection.createStatement();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\nВведите сумму, которая будет выделена на маркетинг: ");
+        int budget = scanner.nextInt();
+        String UPDATE_budget = "UPDATE budget SET money = \'" + budget + "\' WHERE name_category = 'marketing'";
+        statement.executeUpdate(UPDATE_budget);
+
+    }
+
+    public void showBudgetForEachCategory() throws SQLException {
+        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Statement statement = connection.createStatement();
         System.out.println("\n1- Instagram");
         System.out.println("2- Facebook");
         System.out.println("3- Youtube");
@@ -76,52 +100,21 @@ public class Employee {
         System.out.print("\nВыберите категорию места: ");
         int choise = scanner.nextInt();
         if(choise == 1){
-            System.out.println("\n1- Instagram: " + instagramBudget);
+            String SELECT_instagram = "SELECT money FROM budget WHERE name_category = 'instagram'";
+            ResultSet resultI = statement.executeQuery(SELECT_instagram);
+            resultI.next();
+            System.out.println("\n1- Instagram: " + resultI.getInt(1));
         } else if (choise == 2) {
-            System.out.println("\n2- Facebook: " + facebookBudget);
+            String SELECT_facebook = "SELECT money FROM budget WHERE name_category = 'facebook'";
+            ResultSet resultF = statement.executeQuery(SELECT_facebook);
+            resultF.next();
+            System.out.println("\n1- Facebook: " + resultF.getInt(1));
         }else {
-            System.out.println("\n3- Youtube: " + youtubeBudget);
+            String SELECT_youtube = "SELECT money FROM budget WHERE name_category = 'youtube'";
+            ResultSet resultY = statement.executeQuery(SELECT_youtube);
+            resultY.next();
+            System.out.println("\n1- Youtube: " + resultY.getInt(1));
         }
-    }
-
-    public void showBudgetMarketing(){
-        System.out.println("\nОбщий бюджет маркетинга: "+ budgetMarketing);
-    }
-    public int spendingOnPromotion(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("\nВыберите название для продвижения:");
-        System.out.println("\n      1- Instagram");
-        System.out.println("    2- Facebook");
-        System.out.println("    3- Youtube");
-        System.out.print("\n>>> ");
-        int choise = scanner.nextInt();
-        System.out.print("\nНаберите сумму расхода, которую вы хотите потратить из бюджета: ");
-        int account = scanner.nextInt();
-        if(choise == 1 && account <= budgetMarketing){
-            instagramBudget = account;
-            System.out.println("\n1- Instagram: " + instagramBudget);
-            budgetMarketing -= account;
-        } else if (choise == 2 && account <= budgetMarketing) {
-            facebookBudget = account;
-            System.out.println("\n1- Instagram: " + facebookBudget);
-            budgetMarketing -= account;
-        }else if(choise == 3 && account <= budgetMarketing) {
-            youtubeBudget = account;
-            System.out.println("\n1- Instagram: " + youtubeBudget);
-            budgetMarketing -= account;
-        }
-        else{
-            System.out.println("Превышение допустимой суммы!!!");
-        }
-        return budgetMarketing;
-    }
-
-    public int allocateBudget(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("\nВведите сумму, которая будет выделена на маркетинг: ");
-        int budget = scanner.nextInt();
-        budgetMarketing += budget;
-        return budgetMarketing;
     }
 
 }

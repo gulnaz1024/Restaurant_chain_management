@@ -15,7 +15,7 @@ public class Manager extends Employee{
     public int printMenuManager() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nВыберите действие:\n==================");
-        System.out.println("1 - Показать список всех зон покрытия");
+        System.out.println("1 - Показать список сотрудников");
         System.out.println("2 - Распределить дела по сотрудникам");
         System.out.println("3 - Показать список указаний к сотрудникам");
         System.out.println("4 - Показать список зон покрытия");
@@ -41,6 +41,8 @@ public class Manager extends Employee{
     public void giveTasks() throws SQLException {
         Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
         Statement statement = connection.createStatement();
+        PreparedStatement preparedStatement = connection.prepareStatement(INSERT_NEW);
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("\nВведите дело, которое хотите поручить сотруднику: ");
@@ -49,8 +51,6 @@ public class Manager extends Employee{
         System.out.print("Введите id сотрудника: ");
         int userid = scanner.nextInt();
 
-
-        PreparedStatement preparedStatement = connection.prepareStatement(INSERT_NEW);
         preparedStatement.setInt(1, userid);
         preparedStatement.setString(2, task);
         preparedStatement.setString(3, "to do");
