@@ -21,25 +21,11 @@ public class Marketing extends Employee {
         System.out.print("\nВаш выбор: ");
         return scanner.nextInt();
     }
-    @Override
-    public void showCoverageAreas() {
-        super.showCoverageAreas();
-    }
 
     public void showCategoriesMarketing(){
         System.out.println("\nInstagram: 3 000 000");
         System.out.println("Facebook: 500 000");
         System.out.println("Youtube: 1 000 000");
-    }
-
-    @Override
-    public void showBudgetForEachCategory() throws SQLException {
-        super.showBudgetForEachCategory();
-    }
-
-    @Override
-    public void showBudgetMarketing() throws SQLException {
-        super.showBudgetMarketing();
     }
 
     public void spendingOnPromotion() throws SQLException {
@@ -111,8 +97,5 @@ public class Marketing extends Employee {
 
         String UPDATE_youtube = "UPDATE budget SET money = \'" + youtubeBudget + "\' WHERE name_category = 'youtube' ";
         statement.executeUpdate(UPDATE_youtube);
-
-
-
     }
 }

@@ -80,9 +80,4 @@ public class Manager extends Employee{
             System.out.println(resultUserID.getInt(1) + " // " + resultUserID.getString(2) + " // " + resultUserID.getString(3) + " // " + resultUserID.getString(4));
         }
     }
-
-    @Override
-    public void showCoverageAreas() {
-        super.showCoverageAreas();
-    }
 }

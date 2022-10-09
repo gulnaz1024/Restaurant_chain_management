@@ -7,18 +7,18 @@ public class Main {
     static final String DB_USERNAME = "postgres";
     static final String DB_PASSWORD = "2001";
     static final String DB_URL = "jdbc:postgresql://localhost:5432/shopme";
-    private static final String INSERT_NEW = "INSERT INTO employee (name,surname,login,password,status) VALUES(?,?,?,?,?)";
-    private static final String DD = "DELETE FROM employee WHERE login = ?";
 
     public static String registrateEmployee() throws SQLException {
         Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
         Statement statement = connection.createStatement();
+        String INSERT_NEW = "INSERT INTO employee (name,surname,login,password,status, salary) VALUES(?,?,?,?,?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(INSERT_NEW);
         String name = "",
                 surname = "",
                 password = "",
                 status = "";
-        int login = 0;
+        int login = 0,
+            salary = 777;
 
         boolean wrongInput = false;
 
@@ -40,6 +40,8 @@ public class Main {
             System.out.print("Введите статус: ");
             status = scanner.nextLine();
 
+
+
             wrongInput = true;
         } while (name.trim().isEmpty() || surname.trim().isEmpty());
 
@@ -50,6 +52,7 @@ public class Main {
         preparedStatement.setInt(3, login);
         preparedStatement.setString(4, password);
         preparedStatement.setString(5, status);
+        preparedStatement.setInt(6, salary);
         preparedStatement.execute();
 
         String SELECT_id = "SELECT id FROM employee WHERE name = \'" + name + "\' AND surname = \'" + surname + "\'";
@@ -62,7 +65,6 @@ public class Main {
 //            preparedStatement.executeUpdate();
             String UPDATE_LOGIN = "UPDATE employee SET login = \'" + login + "\' WHERE login = 0";
             statement.executeUpdate(UPDATE_LOGIN);
-
 
         return password;
     }

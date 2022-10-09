@@ -57,16 +57,6 @@ public class Director extends Employee {
         System.out.println(salaryCount());
     }
 
-    @Override
-    public void showCoverageAreas() {
-        super.showCoverageAreas();
-    }
-
-    @Override
-    public void showBudgetForEachCategory() throws SQLException{
-        super.showBudgetForEachCategory();
-    }
-
     public void salaryIncrease() throws SQLException {
         Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
         Statement statement = connection.createStatement();
@@ -117,16 +107,6 @@ public class Director extends Employee {
         ResultSet result = statement.executeQuery(SELECT_S);
         result.next();
         System.out.println("Текущая зарплата сотрудника: " + result.getInt(1));
-    }
-
-    @Override
-    public void allocateBudget() throws SQLException {
-        super.allocateBudget();
-    }
-
-    @Override
-    public void showBudgetMarketing() throws SQLException {
-        super.showBudgetMarketing();
     }
 
     public void showeQuipment(){
