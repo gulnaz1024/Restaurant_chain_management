@@ -177,6 +177,9 @@ public class Main {
                     case 50:
                         director.changePassword();
                         break;
+                    case 51:
+                        director.showAllEmployeesList();
+                        break;
                     case 0:
                         System.out.println("\nПрограмма завершена, мы будем рады вашему возвращению!");
                         System.exit(0);
@@ -232,7 +235,7 @@ public class Main {
             while (true) {
                 switch (chosenAction) {
                     case 1:
-                        manager.showEmployees();
+                        manager.showAllWorkersList();
                         break;
                     case 2:
                         manager.giveTasks();

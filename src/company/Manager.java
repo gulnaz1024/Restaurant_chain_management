@@ -26,12 +26,12 @@ public class Manager extends Employee{
         return scanner.nextInt();
     }
 
-    public void showEmployees() throws SQLException {
+    public void showAllWorkersList() throws SQLException {
         Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
         Statement statement = connection.createStatement();
 
-        String SELECT_employee = "SELECT id, name, surname FROM employee WHERE status = 'worker'";
-        ResultSet result = statement.executeQuery(SELECT_employee);
+        String SELECT_worker = "SELECT id, name, surname FROM employee WHERE status = 'worker'";
+        ResultSet result = statement.executeQuery(SELECT_worker);
         System.out.println();
         while(result.next()){
             System.out.println(result.getInt(1) + ". " + result.getString(2) + " " + result.getString(3));
