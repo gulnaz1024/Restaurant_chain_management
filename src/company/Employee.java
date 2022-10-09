@@ -26,15 +26,9 @@ public class Employee {
         Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
         Statement statement = connection.createStatement();
         Scanner scanner = new Scanner(System.in);
-//        String SELECT_id = "SELECT surname FROM employee WHERE name = 'Gulnaz'";
-//        ResultSet result = statement.executeQuery(SELECT_id);
-//        result.next();
-//        System.out.println(result.getString(1));
-//        "UPDATE employee SET login = \'" + login + "\' WHERE login = 0";
-        //String SELECT_ID = "SELECT id FROM employee WHERE login = \'" + login + "\' AND password = \'" + password + "\'";
         System.out.print("\nВведите новый пароль: ");
         String password = scanner.nextLine();
-        String UPDATE_password = "UPDATE employee SET password = \'" + password + "\' WHERE name = \'" + this.name + "\' AND surname = \'" + this.surname + "\' AND login = \'" + this.login + "\'"   ;
+        String UPDATE_password = "UPDATE employee SET password = \'" + password + "\' WHERE name = \'" + this.name + "\' AND surname = \'" + this.surname + "\' AND login = \'" + this.login + "\'";
         statement.executeUpdate(UPDATE_password);
         System.out.println("Ваш пароль успешно изменен.");
     }

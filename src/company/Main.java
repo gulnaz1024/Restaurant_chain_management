@@ -70,7 +70,8 @@ public class Main {
     public static int authorize() throws SQLException {
         Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
         Statement statement = connection.createStatement();
-        int userID = -1;
+        int idThatNeverAppearAtDB = -1;
+        int userID = idThatNeverAppearAtDB;
         String userPassword = "";
 
         while (true) {
@@ -241,14 +242,14 @@ public class Main {
                         manager.giveTasks();
                         break;
                     case 3:
-                        manager.showTableTasks();
+                        manager.showTasksTable();
                         break;
                     case 4:
                         manager.showCoverageAreas();
                         break;
 
                     case 50:
-                        manager.showTasks();
+                        manager.showToDoTasks();
                         break;
                     case 0:
                         System.out.println("\nПрограмма завершена, мы будем рады вашему возвращению!");
