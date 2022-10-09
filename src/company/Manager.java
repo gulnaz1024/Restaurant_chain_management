@@ -30,7 +30,7 @@ public class Manager extends Employee{
         Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
         Statement statement = connection.createStatement();
 
-        String SELECT_employee = "SELECT id,name,surname FROM employee WHERE status = 'worker'";
+        String SELECT_employee = "SELECT id, name, surname FROM employee WHERE status = 'worker'";
         ResultSet result = statement.executeQuery(SELECT_employee);
         System.out.println();
         while(result.next()){

@@ -160,13 +160,13 @@ public class Main {
                         director.showSalaryBudget();
                         break;
                     case 6:
-                        director.salaryIncrease();
+                        director.increaseSalary();
                         break;
                     case 7:
-                        director.salaryDecrease();
+                        director.decreaseSalary();
                         break;
                     case 8:
-                        director.showeQuipment();
+                        director.showEquipment();
                         break;
                     case 48:
                         director.allocateBudget();

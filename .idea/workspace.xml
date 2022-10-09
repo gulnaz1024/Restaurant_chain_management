@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c7bbc1fc-9032-40c1-8776-0514c09782ce" name="Changes" comment="add salary to registration">
+    <list default="true" id="c7bbc1fc-9032-40c1-8776-0514c09782ce" name="Changes" comment="change initial to living wage amount">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/Director.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Director.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Manager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +83,7 @@
       <workItem from="1664790323703" duration="6717000" />
       <workItem from="1664800387997" duration="9021000" />
       <workItem from="1664869458096" duration="4289000" />
-      <workItem from="1665325808045" duration="4058000" />
+      <workItem from="1665325808045" duration="5656000" />
     </task>
     <task id="LOCAL-00001" summary="Class works, add to DB works">
       <created>1663783184616</created>
@@ -181,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665330627385</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="change initial to living wage amount">
+      <created>1665332127838</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1665332127838</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,7 +222,8 @@
     <MESSAGE value="add Worked and fix bug of adding tasks" />
     <MESSAGE value="code refactoring" />
     <MESSAGE value="add salary to registration" />
-    <option name="LAST_COMMIT_MESSAGE" value="add salary to registration" />
+    <MESSAGE value="change initial to living wage amount" />
+    <option name="LAST_COMMIT_MESSAGE" value="change initial to living wage amount" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

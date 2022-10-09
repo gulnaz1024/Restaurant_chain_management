@@ -57,59 +57,59 @@ public class Director extends Employee {
         System.out.println(salaryCount());
     }
 
-    public void salaryIncrease() throws SQLException {
+    public void increaseSalary() throws SQLException {
         Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
         Statement statement = connection.createStatement();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Наберите имя сотрудника которому хотите повысить зарплату: ");
-        String userName = scanner.nextLine();
+        System.out.print("Введите ID сотрудника, которому хотите повысить зарплату: ");
+        int userID = scanner.nextInt();
 
-        String SELECT_salary = "SELECT salary FROM employee WHERE name = \'" + userName + "\'";
+        String SELECT_salary = "SELECT salary FROM employee WHERE id = \'" + userID + "\'";
         ResultSet resultS = statement.executeQuery(SELECT_salary);
         resultS.next();
         int userSalary = resultS.getInt(1);
 
-        System.out.print("Наберите сумму надбавки к зарплате: ");
+        System.out.print("Введите сумму надбавки к зарплате: ");
         int salarySupplement = scanner.nextInt() + userSalary;
 
-        String UPDATE_salary = "UPDATE employee SET salary = \'" + salarySupplement + "\' WHERE name = \'" + userName + "\'" ;
+        String UPDATE_salary = "UPDATE employee SET salary = \'" + salarySupplement + "\' WHERE id = \'" + userID + "\'" ;
         statement.executeUpdate(UPDATE_salary);
 
-        String SELECT_S = "SELECT salary FROM employee WHERE name = \'" + userName + "\'";
+        String SELECT_S = "SELECT salary FROM employee WHERE id = \'" + userID + "\'";
         ResultSet result = statement.executeQuery(SELECT_S);
         result.next();
         System.out.println("Текущая зарплата сотрудника: " + result.getInt(1));
 
     }
 
-    public void salaryDecrease() throws SQLException {
+    public void decreaseSalary() throws SQLException {
         Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
         Statement statement = connection.createStatement();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Наберите имя сотрудника которому хотите понизить зарплату: ");
-        String userName = scanner.nextLine();
+        System.out.print("Введите ID сотрудника, которому хотите понизить зарплату: ");
+        int userID = scanner.nextInt();
 
-        String SELECT_salary = "SELECT salary FROM employee WHERE name = \'" + userName + "\'";
+        String SELECT_salary = "SELECT salary FROM employee WHERE id = \'" + userID + "\'";
         ResultSet resultS = statement.executeQuery(SELECT_salary);
         resultS.next();
         int userSalary = resultS.getInt(1);
 
-        System.out.print("Наберите сумму понижения зарплаты: ");
+        System.out.print("Введите сумму понижения зарплаты: ");
         int salaryReduction = scanner.nextInt();
         salaryReduction= userSalary -salaryReduction;
 
-        String UPDATE_salary = "UPDATE employee SET salary = \'" + salaryReduction + "\' WHERE name = \'" + userName + "\'" ;
+        String UPDATE_salary = "UPDATE employee SET salary = \'" + salaryReduction + "\' WHERE id = \'" + userID + "\'" ;
         statement.executeUpdate(UPDATE_salary);
 
-        String SELECT_S = "SELECT salary FROM employee WHERE name = \'" + userName + "\'";
+        String SELECT_S = "SELECT salary FROM employee WHERE id = \'" + userID + "\'";
         ResultSet result = statement.executeQuery(SELECT_S);
         result.next();
         System.out.println("Текущая зарплата сотрудника: " + result.getInt(1));
     }
 
-    public void showeQuipment(){
+    public void showEquipment() {
         System.out.println("\nCписок оборудований для строительства объектов:\n");
         System.out.println("плиты");
         System.out.println("жарочные шкафы");
