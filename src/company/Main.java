@@ -40,7 +40,17 @@ public class Main {
             System.out.print("Введите статус: ");
             status = scanner.nextLine();
 
+            while (true) {
+                System.out.print("Введите заработную плату: ");
+                String strSalary = scanner.nextLine();
 
+                if (isNumeric(strSalary)) {
+                    salary = Integer.parseInt(strSalary);
+                    break;
+                } else {
+                    System.out.println("\nВводимое значение должно состоять только из цифр.\n");
+                }
+            }
 
             wrongInput = true;
         } while (name.trim().isEmpty() || surname.trim().isEmpty());
