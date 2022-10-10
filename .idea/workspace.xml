@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c7bbc1fc-9032-40c1-8776-0514c09782ce" name="Changes" comment="add logout and infinitive login">
-      <change beforePath="$PROJECT_DIR$/src/company/Director.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Director.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/Hr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Hr.java" afterDir="false" />
+    <list default="true" id="c7bbc1fc-9032-40c1-8776-0514c09782ce" name="Changes" comment="move showAllEmployeesList method to HR class">
       <change beforePath="$PROJECT_DIR$/src/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +83,7 @@
       <workItem from="1665325808045" duration="11090000" />
       <workItem from="1665390001761" duration="2085000" />
       <workItem from="1665392114543" duration="4246000" />
-      <workItem from="1665422645687" duration="3250000" />
+      <workItem from="1665422645687" duration="3569000" />
     </task>
     <task id="LOCAL-00001" summary="Class works, add to DB works">
       <created>1663783184616</created>
@@ -234,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665427070239</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="move showAllEmployeesList method to HR class">
+      <created>1665427521115</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1665427521115</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,7 +276,8 @@
     <MESSAGE value="add HR and code refactoring" />
     <MESSAGE value="code refactoring" />
     <MESSAGE value="add logout and infinitive login" />
-    <option name="LAST_COMMIT_MESSAGE" value="add logout and infinitive login" />
+    <MESSAGE value="move showAllEmployeesList method to HR class" />
+    <option name="LAST_COMMIT_MESSAGE" value="move showAllEmployeesList method to HR class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

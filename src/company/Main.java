@@ -113,6 +113,9 @@ public class Main {
                         case 48:
                             director.allocateBudget();
                             break;
+                        case 49:
+                            director.registrateEmployee();
+                            break;
                         case 50:
                             director.changePassword();
                             break;
