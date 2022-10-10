@@ -28,6 +28,7 @@ public class Director extends Hr {
         System.out.println("49 - Регистрация нового сотрудника");
         System.out.println("50 - Изменить пароль");
         System.out.println("51 - Показать список всех сотрудников");
+        System.out.println("99 - Выйти из учетной записи");
         System.out.println("0 - Закончить работу");
         System.out.print("\nВаш выбор: ");
         int choice = scanner.nextInt();
@@ -113,18 +114,5 @@ public class Director extends Hr {
         System.out.println("жарочные шкафы");
         System.out.println("пароконвектоматы");
         System.out.println("опциональное оборудование");
-    }
-
-    public void showAllEmployeesList() throws SQLException {
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
-        Statement statement = connection.createStatement();
-
-        String SELECT_employee = "SELECT id, name, surname, status, salary FROM employee";
-        ResultSet result = statement.executeQuery(SELECT_employee);
-        System.out.printf("\n%-5s %-10s %-12s %-13s %-10s\n", "ID", "Имя", "Фамилия", "Статус", "Зарплата");
-        while(result.next()){
-            System.out.printf("%-5s %-10s %-12s %-13s %-10s\n", result.getInt(1), result.getString(2),
-                 result.getString(3), result.getString(4), result.getInt(5));
-        }
     }
 }

@@ -268,6 +268,9 @@ public class Main {
                         case 1:
                             HR.registrateEmployee();
                             break;
+                        case 51:
+                            HR.showAllEmployeesList();
+                            break;
                         case 99:
                             System.out.println("Вы вышли из учетной записи\n");
                             logOut = true;

@@ -21,6 +21,7 @@ public class Manager extends Employee{
         System.out.println("4 - Показать список зон покрытия");
 
         System.out.println("50 - Показать список дел");
+        System.out.println("99 - Выйти из учетной записи");
         System.out.println("0 - Закончить работу");
         System.out.print("\nВаш выбор: ");
         return scanner.nextInt();
