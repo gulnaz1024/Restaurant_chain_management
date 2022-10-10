@@ -74,7 +74,7 @@ public class Hr extends Employee {
                     status = "HR";
                     break;
                 } else {
-                    System.out.println("\nTry again! ");
+                    System.out.println("\nНе правильный выбор!");
                 }
             }
 
