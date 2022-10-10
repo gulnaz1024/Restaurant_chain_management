@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7bbc1fc-9032-40c1-8776-0514c09782ce" name="Changes" comment="code refactoring">
-      <change afterPath="$PROJECT_DIR$/src/company/Hr.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/Director.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Director.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,6 +84,7 @@
       <workItem from="1665325808045" duration="11090000" />
       <workItem from="1665390001761" duration="2085000" />
       <workItem from="1665392114543" duration="4246000" />
+      <workItem from="1665422645687" duration="2853000" />
     </task>
     <task id="LOCAL-00001" summary="Class works, add to DB works">
       <created>1663783184616</created>
@@ -213,7 +212,21 @@
       <option name="project" value="LOCAL" />
       <updated>1665341067150</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="add HR and code refactoring">
+      <created>1665422850876</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1665422850876</updated>
+    </task>
+    <task id="LOCAL-00020" summary="code refactoring">
+      <created>1665423256773</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1665423256773</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,6 +260,7 @@
     <MESSAGE value="change initial to living wage amount" />
     <MESSAGE value="change salary change from name to ID" />
     <MESSAGE value="add show all employee to director" />
+    <MESSAGE value="add HR and code refactoring" />
     <MESSAGE value="code refactoring" />
     <option name="LAST_COMMIT_MESSAGE" value="code refactoring" />
   </component>

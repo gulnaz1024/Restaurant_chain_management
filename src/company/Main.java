@@ -65,183 +65,230 @@ public class Main {
         Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
         Statement statement = connection.createStatement();
 
-        int authorizedUserID = authorize();
+        while (true) {
 
-        String SELECT_All = "SELECT * FROM employee WHERE id = \'" + authorizedUserID + "\'";
-        ResultSet resultAll = statement.executeQuery(SELECT_All);
-        resultAll.next();
-        String userName = resultAll.getString(2);
-        String userSurname = resultAll.getString(3);
-        int userLogin = resultAll.getInt(4);
-        String userStatus = resultAll.getString(6);
-        int userSalary = resultAll.getInt(7);
+            int authorizedUserID = authorize();
 
-        if (userStatus.equals("director")) {
+            String SELECT_All = "SELECT * FROM employee WHERE id = \'" + authorizedUserID + "\'";
+            ResultSet resultAll = statement.executeQuery(SELECT_All);
+            resultAll.next();
+            String userName = resultAll.getString(2);
+            String userSurname = resultAll.getString(3);
+            int userLogin = resultAll.getInt(4);
+            String userStatus = resultAll.getString(6);
+            int userSalary = resultAll.getInt(7);
 
-            Director director = new Director(userName, userSurname, userLogin, userStatus, userSalary);
+            if (userStatus.equals("director")) {
 
-            int chosenAction = director.printMenuDirector();
-            while (true) {
-                switch (chosenAction) {
-                    case 1:
-                        director.showCoverageAreas();
+                Director director = new Director(userName, userSurname, userLogin, userStatus, userSalary);
+
+                int chosenAction = director.printMenuDirector();
+                while (true) {
+                    boolean logOut = false;
+                    switch (chosenAction) {
+                        case 1:
+                            director.showCoverageAreas();
+                            break;
+                        case 2:
+                            director.showAllBudget();
+                            break;
+                        case 3:
+                            director.showBudgetForEachCategory();
+                            break;
+                        case 4:
+                            director.showBudgetMarketing();
+                            break;
+                        case 5:
+                            director.showSalaryBudget();
+                            break;
+                        case 6:
+                            director.increaseSalary();
+                            break;
+                        case 7:
+                            director.decreaseSalary();
+                            break;
+                        case 8:
+                            director.showEquipment();
+                            break;
+                        case 48:
+                            director.allocateBudget();
+                            break;
+                        case 50:
+                            director.changePassword();
+                            break;
+                        case 51:
+                            director.showAllEmployeesList();
+                            break;
+                        case 99:
+                            System.out.println("Вы вышли из учетной записи\n");
+                            logOut = true;
+                            break;
+                        case 0:
+                            System.out.println("\nПрограмма завершена, мы будем рады вашему возвращению!");
+                            System.exit(0);
+                    }
+
+                    if (logOut) {
                         break;
-                    case 2:
-                        director.showAllBudget();
-                        break;
-                    case 3:
-                        director.showBudgetForEachCategory();
-                        break;
-                    case 4:
-                        director.showBudgetMarketing();
-                        break;
-                    case 5:
-                        director.showSalaryBudget();
-                        break;
-                    case 6:
-                        director.increaseSalary();
-                        break;
-                    case 7:
-                        director.decreaseSalary();
-                        break;
-                    case 8:
-                        director.showEquipment();
-                        break;
-                    case 48:
-                        director.allocateBudget();
-                        break;
-                    case 50:
-                        director.changePassword();
-                        break;
-                    case 51:
-                        director.showAllEmployeesList();
-                        break;
-                    case 0:
-                        System.out.println("\nПрограмма завершена, мы будем рады вашему возвращению!");
-                        System.exit(0);
+                    }
+
+                    Scanner s = new Scanner(System.in);
+                    System.out.print("\nНажмите Enter для продолжения...");
+                    s.nextLine();
+                    chosenAction = director.printMenuDirector();
                 }
 
-                Scanner s = new Scanner(System.in);
-                System.out.print("\nНажмите Enter для продолжения...");
-                s.nextLine();
-                chosenAction = director.printMenuDirector();
-            }
+            } else if (userStatus.equals("marketing")) {
+                Marketing marketing = new Marketing(userName, userSurname, userLogin, userStatus, userSalary);
 
-        } else if (userStatus.equals("marketing")) {
-            Marketing marketing = new Marketing(userName, userSurname, userLogin, userStatus, userSalary);
+                int chosenAction = marketing.printMenuMarketing();
+                while (true) {
+                    boolean logOut = false;
+                    switch (chosenAction) {
+                        case 1:
+                            marketing.showCoverageAreas();
+                            break;
+                        case 2:
+                            marketing.showCategoriesMarketing();
+                            break;
+                        case 3:
+                            marketing.showBudgetForEachCategory();
+                            break;
+                        case 4:
+                            marketing.showBudgetMarketing();
+                            break;
+                        case 5:
+                            marketing.spendingOnPromotion();
+                            break;
+                        case 99:
+                            System.out.println("Вы вышли из учетной записи\n");
+                            logOut = true;
+                            break;
+                        case 0:
+                            System.out.println("\nПрограмма завершена, мы будем рады вашему возвращению!");
+                            System.exit(0);
+                    }
 
-            int chosenAction = marketing.printMenuMarketing();
-            while (true) {
-                switch (chosenAction) {
-                    case 1:
-                        marketing.showCoverageAreas();
+                    if (logOut) {
                         break;
-                    case 2:
-                        marketing.showCategoriesMarketing();
-                        break;
-                    case 3:
-                        marketing.showBudgetForEachCategory();
-                        break;
-                    case 4:
-                        marketing.showBudgetMarketing();
-                        break;
-                    case 5:
-                        marketing.spendingOnPromotion();
-                        break;
-                    case 0:
-                        System.out.println("\nПрограмма завершена, мы будем рады вашему возвращению!");
-                        System.exit(0);
+                    }
+
+                    Scanner s = new Scanner(System.in);
+                    System.out.print("\nНажмите Enter для продолжения...");
+                    s.nextLine();
+                    chosenAction = marketing.printMenuMarketing();
                 }
+            } else if (userStatus.equals("manager")) {
+                Manager manager = new Manager(userName, userSurname, userLogin, userStatus, userSalary);
 
-                Scanner s = new Scanner(System.in);
-                System.out.print("\nНажмите Enter для продолжения...");
-                s.nextLine();
-                chosenAction = marketing.printMenuMarketing();
-            }
-        } else if (userStatus.equals("manager")) {
-            Manager manager = new Manager(userName, userSurname, userLogin, userStatus, userSalary);
+                int chosenAction = manager.printMenuManager();
+                while (true) {
+                    boolean logOut = false;
+                    switch (chosenAction) {
+                        case 1:
+                            manager.showAllWorkersList();
+                            break;
+                        case 2:
+                            manager.giveTasks();
+                            break;
+                        case 3:
+                            manager.showTasksTable();
+                            break;
+                        case 4:
+                            manager.showCoverageAreas();
+                            break;
 
-            int chosenAction = manager.printMenuManager();
-            while (true) {
-                switch (chosenAction) {
-                    case 1:
-                        manager.showAllWorkersList();
-                        break;
-                    case 2:
-                        manager.giveTasks();
-                        break;
-                    case 3:
-                        manager.showTasksTable();
-                        break;
-                    case 4:
-                        manager.showCoverageAreas();
-                        break;
+                        case 50:
+                            manager.showToDoTasks();
+                            break;
+                        case 99:
+                            System.out.println("Вы вышли из учетной записи\n");
+                            logOut = true;
+                            break;
+                        case 0:
+                            System.out.println("\nПрограмма завершена, мы будем рады вашему возвращению!");
+                            System.exit(0);
+                    }
 
-                    case 50:
-                        manager.showToDoTasks();
+                    if (logOut) {
                         break;
-                    case 0:
-                        System.out.println("\nПрограмма завершена, мы будем рады вашему возвращению!");
-                        System.exit(0);
+                    }
+
+                    Scanner s = new Scanner(System.in);
+                    System.out.print("\nНажмите Enter для продолжения...");
+                    s.nextLine();
+
+                    chosenAction = manager.printMenuManager();
                 }
+            } else if (userStatus.equals("worker")) {
+                Worker worker = new Worker(userName, userSurname, userLogin, userStatus, userSalary);
 
-                Scanner s = new Scanner(System.in);
-                System.out.print("\nНажмите Enter для продолжения...");
-                s.nextLine();
+                int chosenAction = worker.printMenuWorker();
+                while (true) {
+                    boolean logOut = false;
+                    switch (chosenAction) {
+                        case 1:
+                            worker.showTasksToDo();
+                            break;
+                        case 2:
+                            worker.showTasksDone();
+                            break;
+                        case 3:
+                            worker.showTasksINProgress();
+                            break;
+                        case 4:
+                            worker.showEmployeeSalary();
+                            break;
+                        case 99:
+                            System.out.println("Вы вышли из учетной записи\n");
+                            logOut = true;
+                            break;
+                        case 0:
+                            System.out.println("\nПрограмма завершена, мы будем рады вашему возвращению!");
+                            System.exit(0);
+                    }
 
-                chosenAction = manager.printMenuManager();
-            }
-        } else if (userStatus.equals("worker")) {
-            Worker worker = new Worker(userName, userSurname, userLogin, userStatus, userSalary);
+                    if (logOut) {
+                        break;
+                    }
 
-            int chosenAction = worker.printMenuWorker();
-            while (true) {
-                switch (chosenAction) {
-                    case 1:
-                        worker.showTasksToDo();
-                        break;
-                    case 2:
-                        worker.showTasksDone();
-                        break;
-                    case 3:
-                        worker.showTasksINProgress();
-                        break;
-                    case 4:
-                        worker.showEmployeeSalary();
-                        break;
-                    case 0:
-                        System.out.println("\nПрограмма завершена, мы будем рады вашему возвращению!");
-                        System.exit(0);
+                    Scanner s = new Scanner(System.in);
+                    System.out.print("\nНажмите Enter для продолжения...");
+                    s.nextLine();
+
+                    chosenAction = worker.printMenuWorker();
                 }
+            } else if (userStatus.equals("HR")) {
+                Hr HR = new Hr(userName, userSurname, userLogin, userStatus, userSalary);
 
-                Scanner s = new Scanner(System.in);
-                System.out.print("\nНажмите Enter для продолжения...");
-                s.nextLine();
+                int chosenAction = HR.printMenuHR();
+                while (true) {
+                    boolean logOut = false;
+                    switch (chosenAction) {
+                        case 1:
+                            HR.registrateEmployee();
+                            break;
+                        case 99:
+                            System.out.println("Вы вышли из учетной записи\n");
+                            logOut = true;
+                            break;
+                        case 0:
+                            System.out.println("\nПрограмма завершена, мы будем рады вашему возвращению!");
+                            System.exit(0);
+                    }
 
-                chosenAction = worker.printMenuWorker();
-            }
-        } else if (userStatus.equals("HR")) {
-            Hr HR = new Hr(userName, userSurname, userLogin, userStatus, userSalary);
-
-            int chosenAction = HR.printMenuHR();
-            while (true) {
-                switch (chosenAction) {
-                    case 1:
-                        HR.registrateEmployee();
+                    if (logOut) {
                         break;
-                    case 0:
-                        System.out.println("\nПрограмма завершена, мы будем рады вашему возвращению!");
-                        System.exit(0);
+                    }
+
+                    Scanner s = new Scanner(System.in);
+                    System.out.print("\nНажмите Enter для продолжения...");
+                    s.nextLine();
+
+                    chosenAction = HR.printMenuHR();
                 }
-
-                Scanner s = new Scanner(System.in);
-                System.out.print("\nНажмите Enter для продолжения...");
-                s.nextLine();
-
-                chosenAction = HR.printMenuHR();
             }
         }
-
     }
 }
 
