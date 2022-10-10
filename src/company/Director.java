@@ -4,15 +4,12 @@ import java.util.Scanner;
 
 import static company.Main.*;
 
-public class Director extends Employee {
+public class Director extends Hr {
 
     public Director(String name, String surname, int login, String status, int salary) {
         super(name, surname, login, status, salary);
     }
 
-    public void registrateNewEmployee() throws Exception{
-        registrateEmployee();
-    }
 
     public int printMenuDirector() {
         Scanner scanner = new Scanner(System.in);
