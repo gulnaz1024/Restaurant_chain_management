@@ -76,9 +76,8 @@ public class Manager extends Employee{
 
         String SELECT_tasks_by_user = "SELECT tasks.userid, employee.name, employee.surname, tasks.task, tasks.progress FROM employee JOIN tasks ON employee.id = tasks.userid ORDER BY employee.id";
         ResultSet resultUserID = statement.executeQuery(SELECT_tasks_by_user);
-        System.out.printf("%-5s %-10s %-12s %-17s %-10s\n", "ID", "Имя", "Фамилия", "Задание", "Прогресc");
+        System.out.printf("\n%-5s %-10s %-12s %-17s %-10s\n", "ID", "Имя", "Фамилия", "Задание", "Прогресc");
         while (resultUserID.next()) {
-//            System.out.println(resultUserID.getInt(1) + " // " + resultUserID.getString(2) + " // " + resultUserID.getString(3) + " // " + resultUserID.getString(4));
             System.out.printf("%-5s %-10s %-12s %-15s %-10s\n", resultUserID.getInt(1), resultUserID.getString(2),
                     resultUserID.getString(3), resultUserID.getString(4), resultUserID.getString(5));
         }

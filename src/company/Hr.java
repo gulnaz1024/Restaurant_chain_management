@@ -28,11 +28,11 @@ public class Hr extends Employee {
         String INSERT_NEW = "INSERT INTO employee (name,surname,login,password,status, salary) VALUES(?,?,?,?,?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(INSERT_NEW);
         String name = "",
-                surname = "",
-                password = "",
-                status = "";
+               surname = "",
+               password = "",
+               status = "";
         int login = 0,
-                livingWageSalary = 6900;
+            livingWageSalary = 6900;
 
         boolean wrongInput = false;
 
