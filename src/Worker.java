@@ -1,9 +1,5 @@
-package company;
-
 import java.sql.*;
 import java.util.Scanner;
-
-import static company.Main.*;
 
 public class Worker extends Employee {
 
@@ -24,7 +20,7 @@ public class Worker extends Employee {
         return scanner.nextInt();
     }
     public void showTasksToDo() throws SQLException {
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
         String SELECT_tasks = "SELECT task FROM tasks WHERE userid = \'" + this.login + "\' AND progress = 'to do'";
         ResultSet result = statement.executeQuery(SELECT_tasks);
@@ -35,7 +31,7 @@ public class Worker extends Employee {
     }
 
     public void showTasksDone() throws SQLException {
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
         String SELECT_tasks = "SELECT task FROM tasks WHERE userid = \'" + this.login + "\' AND progress = 'done'";
         ResultSet result = statement.executeQuery(SELECT_tasks);
@@ -46,7 +42,7 @@ public class Worker extends Employee {
     }
 
     public void showTasksINProgress() throws SQLException {
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
         String SELECT_tasks = "SELECT task FROM tasks WHERE userid = \'" + this.login + "\' AND progress = 'in progress'";
         ResultSet result = statement.executeQuery(SELECT_tasks);
@@ -57,7 +53,7 @@ public class Worker extends Employee {
     }
 
     public void showEmployeeSalary() throws SQLException {
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
         String SELECT_salary = "SELECT salary FROM employee WHERE login = \'" + this.login + "\'";
         ResultSet result = statement.executeQuery(SELECT_salary);

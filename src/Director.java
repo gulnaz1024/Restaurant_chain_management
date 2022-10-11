@@ -1,8 +1,5 @@
-package company;
 import java.sql.*;
 import java.util.Scanner;
-
-import static company.Main.*;
 
 public class Director extends Hr {
 
@@ -35,7 +32,7 @@ public class Director extends Hr {
         return choice;
     }
     public void showAllBudget() throws SQLException{
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
         Scanner scanner = new Scanner(System.in);
 
@@ -57,7 +54,7 @@ public class Director extends Hr {
     }
 
     public void increaseSalary() throws SQLException {
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
         Scanner scanner = new Scanner(System.in);
 
@@ -83,7 +80,7 @@ public class Director extends Hr {
     }
 
     public void decreaseSalary() throws SQLException {
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
         Scanner scanner = new Scanner(System.in);
 

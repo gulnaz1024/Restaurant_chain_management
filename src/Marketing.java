@@ -1,8 +1,5 @@
-package company;
 import java.sql.*;
 import java.util.Scanner;
-
-import static company.Main.*;
 
 public class Marketing extends Employee {
     public Marketing(String name, String surname, int login, String status, int salary) {
@@ -35,7 +32,7 @@ public class Marketing extends Employee {
         int facebookBudget = 0;
         int youtubeBudget = 0;
         int salary = 0;
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
         Scanner scanner = new Scanner(System.in);
         String SELECT_marketing = "SELECT money FROM budget WHERE name_category = 'marketing'";

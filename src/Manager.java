@@ -1,9 +1,5 @@
-package company;
-
 import java.sql.*;
 import java.util.Scanner;
-
-import static company.Main.*;
 
 public class Manager extends Employee{
     private static final String INSERT_NEW = "INSERT INTO tasks (userid, task, progress) VALUES(?,?,?)";
@@ -28,7 +24,7 @@ public class Manager extends Employee{
     }
 
     public void showAllWorkersList() throws SQLException {
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
 
         String SELECT_worker = "SELECT id, name, surname FROM employee WHERE status = 'worker'";
@@ -40,7 +36,7 @@ public class Manager extends Employee{
     }
 
     public void giveTasks() throws SQLException {
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
         PreparedStatement preparedStatement = connection.prepareStatement(INSERT_NEW);
 
@@ -60,7 +56,7 @@ public class Manager extends Employee{
     }
 
     public void showToDoTasks() throws SQLException{
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
         String SELECT_tasks = "SELECT task FROM tasks WHERE progress = 'to do'";
         ResultSet result = statement.executeQuery(SELECT_tasks);
@@ -71,7 +67,7 @@ public class Manager extends Employee{
     }
 
     public void showTasksTable() throws SQLException {
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
 
         String SELECT_tasks_by_user = "SELECT tasks.userid, employee.name, employee.surname, tasks.task, tasks.progress FROM employee JOIN tasks ON employee.id = tasks.userid ORDER BY employee.id";

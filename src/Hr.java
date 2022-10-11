@@ -1,8 +1,5 @@
-package company;
 import java.sql.*;
 import java.util.Scanner;
-
-import static company.Main.*;
 
 public class Hr extends Employee {
 
@@ -23,7 +20,7 @@ public class Hr extends Employee {
     }
 
     public String registrateEmployee() throws SQLException {
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
         String INSERT_NEW = "INSERT INTO employee (name,surname,login,password,status, salary) VALUES(?,?,?,?,?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(INSERT_NEW);
@@ -108,7 +105,7 @@ public class Hr extends Employee {
     }
 
     public void showAllEmployeesList() throws SQLException {
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
 
         String SELECT_employee = "SELECT id, name, surname, status, salary FROM employee";

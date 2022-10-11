@@ -1,9 +1,5 @@
-package company;
-
 import java.sql.*;
 import java.util.Scanner;
-
-import static company.Main.*;
 
 public class Employee {
 
@@ -23,7 +19,7 @@ public class Employee {
     }
 
     public void changePassword() throws SQLException {
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nВведите новый пароль: ");
@@ -34,7 +30,7 @@ public class Employee {
     }
 
     public int salaryCount() throws SQLException {
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
         String SELECT_salary = "SELECT salary FROM employee";
         ResultSet result = statement.executeQuery(SELECT_salary);
@@ -64,7 +60,7 @@ public class Employee {
 
 
     public void showBudgetMarketing() throws SQLException{
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
         String SELECT_marketingBudget = "SELECT money FROM budget WHERE name_category = 'marketing'";
         ResultSet resultB = statement.executeQuery(SELECT_marketingBudget);
@@ -74,7 +70,7 @@ public class Employee {
 
 
     public void allocateBudget() throws SQLException{
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nВведите сумму, которая будет выделена на маркетинг: ");
@@ -85,7 +81,7 @@ public class Employee {
     }
 
     public void showBudgetForEachCategory() throws SQLException {
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
         System.out.println("\n1- Instagram");
         System.out.println("2- Facebook");
