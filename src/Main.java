@@ -108,16 +108,16 @@ public class Main {
                         case 8:
                             director.showEquipment();
                             break;
-                        case 48:
+                        case 9:
                             director.allocateBudget();
                             break;
-                        case 49:
+                        case 10:
                             director.registrateEmployee();
                             break;
-                        case 50:
+                        case 11:
                             director.changePassword();
                             break;
-                        case 51:
+                        case 12:
                             director.showAllEmployeesList();
                             break;
                         case 99:
@@ -198,8 +198,7 @@ public class Main {
                         case 4:
                             manager.showCoverageAreas();
                             break;
-
-                        case 50:
+                        case 5:
                             manager.showToDoTasks();
                             break;
                         case 99:
@@ -218,7 +217,6 @@ public class Main {
                     Scanner s = new Scanner(System.in);
                     System.out.print("\nНажмите Enter для продолжения...");
                     s.nextLine();
-
                     chosenAction = manager.printMenuManager();
                 }
             } else if (userStatus.equals("worker")) {
@@ -256,7 +254,6 @@ public class Main {
                     Scanner s = new Scanner(System.in);
                     System.out.print("\nНажмите Enter для продолжения...");
                     s.nextLine();
-
                     chosenAction = worker.printMenuWorker();
                 }
             } else if (userStatus.equals("HR")) {
@@ -269,7 +266,7 @@ public class Main {
                         case 1:
                             HR.registrateEmployee();
                             break;
-                        case 51:
+                        case 2:
                             HR.showAllEmployeesList();
                             break;
                         case 99:

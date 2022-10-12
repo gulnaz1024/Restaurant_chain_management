@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c7bbc1fc-9032-40c1-8776-0514c09782ce" name="Changes" comment="code refactoring">
-      <change beforePath="$PROJECT_DIR$/src/company/Director.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Director.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/Hr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/Marketing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Marketing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Worker.java" afterDir="false" />
+    <list default="true" id="c7bbc1fc-9032-40c1-8776-0514c09782ce" name="Changes" comment="remove unnecessary package">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Director.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Director.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +90,7 @@
       <workItem from="1665392114543" duration="4246000" />
       <workItem from="1665422645687" duration="4154000" />
       <workItem from="1665510676690" duration="1558000" />
+      <workItem from="1665552290637" duration="1350000" />
     </task>
     <task id="LOCAL-00001" summary="Class works, add to DB works">
       <created>1663783184616</created>
@@ -260,7 +260,21 @@
       <option name="project" value="LOCAL" />
       <updated>1665510928359</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="remove unnecessary package">
+      <created>1665514093445</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1665514093445</updated>
+    </task>
+    <task id="LOCAL-00026" summary="remove unnecessary package">
+      <created>1665514390362</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1665514390362</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,7 +313,8 @@
     <MESSAGE value="move showAllEmployeesList method to HR class" />
     <MESSAGE value="fix bug" />
     <MESSAGE value="code refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="code refactoring" />
+    <MESSAGE value="remove unnecessary package" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove unnecessary package" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

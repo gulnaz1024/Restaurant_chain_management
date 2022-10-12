@@ -15,8 +15,7 @@ public class Manager extends Employee{
         System.out.println("2 - Распределить дела по сотрудникам");
         System.out.println("3 - Показать список указаний к сотрудникам");
         System.out.println("4 - Показать список зон покрытия");
-
-        System.out.println("50 - Показать список дел");
+        System.out.println("5 - Показать список дел");
         System.out.println("99 - Выйти из учетной записи");
         System.out.println("0 - Закончить работу");
         System.out.print("\nВаш выбор: ");

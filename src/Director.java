@@ -19,12 +19,10 @@ public class Director extends Hr {
         System.out.println("6 - Повысить зарплату сотруднику: ");
         System.out.println("7 - Понизить зарплату сотруднику: ");
         System.out.println("8 - Показать список оборудований для строительства объектов ");
-
-
-        System.out.println("48 - Выделить бюджет для маркетинга: ");
-        System.out.println("49 - Регистрация нового сотрудника");
-        System.out.println("50 - Изменить пароль");
-        System.out.println("51 - Показать список всех сотрудников");
+        System.out.println("9 - Выделить бюджет для маркетинга: ");
+        System.out.println("10 - Регистрация нового сотрудника");
+        System.out.println("11 - Изменить пароль");
+        System.out.println("12 - Показать список всех сотрудников");
         System.out.println("99 - Выйти из учетной записи");
         System.out.println("0 - Закончить работу");
         System.out.print("\nВаш выбор: ");
