@@ -14,6 +14,7 @@ public class Marketing extends Employee {
         System.out.println("3 - Показать выделенный бюджет для определенной категорий мест для маркетинга");
         System.out.println("4 - Показать оставшийся бюджет для маркетинга");
         System.out.println("5 - Потратить бюджет на продвижение");
+        System.out.println("6 - Изменить пароль");
         System.out.println("99 - Выйти из учетной записи");
         System.out.println("0 - Закончить работу");
         System.out.print("\nВаш выбор: ");

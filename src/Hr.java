@@ -12,6 +12,7 @@ public class Hr extends Employee {
         System.out.println("\nВыберите действие:\n==================");
         System.out.println("1 - Регистрация нового сотрудника");
         System.out.println("2 - Показать список всех сотрудников");
+        System.out.println("3 - Изменить пароль");
         System.out.println("99 - Выйти из учетной записи");
         System.out.println("0 - Закончить работу");
         System.out.print("\nВаш выбор: ");

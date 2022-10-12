@@ -161,6 +161,9 @@ public class Main {
                         case 5:
                             marketing.spendingOnPromotion();
                             break;
+                        case 6:
+                            marketing.changePassword();
+                            break;
                         case 99:
                             System.out.println("Вы вышли из учетной записи\n");
                             logOut = true;
@@ -201,6 +204,9 @@ public class Main {
                         case 5:
                             manager.showToDoTasks();
                             break;
+                        case 6:
+                            manager.changePassword();
+                            break;
                         case 99:
                             System.out.println("Вы вышли из учетной записи\n");
                             logOut = true;
@@ -238,6 +244,9 @@ public class Main {
                         case 4:
                             worker.showEmployeeSalary();
                             break;
+                        case 5:
+                            worker.changePassword();
+                            break;
                         case 99:
                             System.out.println("Вы вышли из учетной записи\n");
                             logOut = true;
@@ -268,6 +277,9 @@ public class Main {
                             break;
                         case 2:
                             HR.showAllEmployeesList();
+                            break;
+                        case 3:
+                            HR.changePassword();
                             break;
                         case 99:
                             System.out.println("Вы вышли из учетной записи\n");

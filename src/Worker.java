@@ -14,6 +14,7 @@ public class Worker extends Employee {
         System.out.println("2 - Показать список завершенных указаний");
         System.out.println("3 - Показать список дел над, которым я работаю");
         System.out.println("4 - Показать зарплату");
+        System.out.println("5 - Изменить пароль");
         System.out.println("99 - Выйти из учетной записи");
         System.out.println("0 - Закончить работу");
         System.out.print("\nВаш выбор: ");
