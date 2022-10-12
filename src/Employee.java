@@ -44,11 +44,6 @@ public class Employee {
         return this.salary;
     }
 
-    public void printWage() {
-        System.out.println(this.salary);
-    }
-
-
     public void showCoverageAreas() {
         System.out.println("\nЗона охвата клиентами для Бишкека: 13%");
         System.out.println("Зона охвата клиентами для Джаллабада: 17%");
