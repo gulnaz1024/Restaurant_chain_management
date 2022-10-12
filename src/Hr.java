@@ -108,7 +108,7 @@ public class Hr extends Employee {
         Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
 
-        String SELECT_employee = "SELECT id, name, surname, status, salary FROM employee";
+        String SELECT_employee = "SELECT id, name, surname, status, salary FROM employee ORDER BY id";
         ResultSet result = statement.executeQuery(SELECT_employee);
         System.out.printf("\n%-5s %-10s %-12s %-13s %-10s\n", "ID", "Имя", "Фамилия", "Статус", "Зарплата");
         while(result.next()){

@@ -11,9 +11,9 @@ public class Manager extends Employee{
     public int printMenuManager() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nВыберите действие:\n==================");
-        System.out.println("1 - Показать список сотрудников");
-        System.out.println("2 - Распределить дела по сотрудникам");
-        System.out.println("3 - Показать список указаний к сотрудникам");
+        System.out.println("1 - Показать список работников");
+        System.out.println("2 - Распределить дела по работникам");
+        System.out.println("3 - Показать список указаний к работникам");
         System.out.println("4 - Показать список зон покрытия");
         System.out.println("5 - Показать список дел");
         System.out.println("99 - Выйти из учетной записи");
@@ -26,7 +26,7 @@ public class Manager extends Employee{
         Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
 
-        String SELECT_worker = "SELECT id, name, surname FROM employee WHERE status = 'worker'";
+        String SELECT_worker = "SELECT id, name, surname FROM employee WHERE status = 'worker' ORDER BY id";
         ResultSet result = statement.executeQuery(SELECT_worker);
         System.out.println();
         while(result.next()){

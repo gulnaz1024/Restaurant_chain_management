@@ -12,7 +12,7 @@ public class Marketing extends Employee {
         System.out.println("1 - Показать список всех зон покрытия");
         System.out.println("2 - Показать список категорий для маркетинга");
         System.out.println("3 - Показать выделенный бюджет для определенной категорий мест для маркетинга");
-        System.out.println("4 - Показать выделенный бюджет для маркетинга");
+        System.out.println("4 - Показать оставшийся бюджет для маркетинга");
         System.out.println("5 - Потратить бюджет на продвижение");
         System.out.println("99 - Выйти из учетной записи");
         System.out.println("0 - Закончить работу");
@@ -27,11 +27,11 @@ public class Marketing extends Employee {
     }
 
     public void spendingOnPromotion() throws SQLException {
-        int budgetMarketing = 0;
-        int instagramBudget = 0;
-        int facebookBudget = 0;
-        int youtubeBudget = 0;
-        int salary = 0;
+        int budgetMarketing = 0,
+            instagramBudget = 0,
+            facebookBudget = 0,
+            youtubeBudget = 0;
+
         Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
         Scanner scanner = new Scanner(System.in);
@@ -57,11 +57,11 @@ public class Marketing extends Employee {
         youtubeBudget =resultY.getInt(1);
 
         while (true) {
-            System.out.print("\nВыберите название для продвижения:");
-            System.out.println("\n      1- Instagram");
+            System.out.println("\nВыберите название для продвижения:");
+            System.out.println("    1- Instagram");
             System.out.println("    2- Facebook");
             System.out.println("    3- Youtube");
-            System.out.print("\n>>> ");
+            System.out.print(">>> ");
             int choise = scanner.nextInt();
             System.out.print("\nНаберите сумму расхода, которую вы хотите потратить из бюджета: ");
             int account = scanner.nextInt();
