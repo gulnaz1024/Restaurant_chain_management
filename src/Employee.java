@@ -33,15 +33,15 @@ public class Employee {
         Connection connection = DriverManager.getConnection(Main.DB_URL, Main.DB_USERNAME, Main.DB_PASSWORD);
         Statement statement = connection.createStatement();
         String SELECT_salary = "SELECT salary FROM employee";
-        int salary = 0;
+        int totalSalary = 0;
         ResultSet result = statement.executeQuery(SELECT_salary);
         while(result.next()){
-            salary += result.getInt(1);
+            totalSalary += result.getInt(1);
         }
-        String UPDATE_salary = "UPDATE budget SET money = \'" + salary + "\' WHERE name_category = 'salary'";
+        String UPDATE_salary = "UPDATE budget SET money = \'" + totalSalary + "\' WHERE name_category = 'salary'";
         statement.executeUpdate(UPDATE_salary);
 
-        return this.salary;
+        return totalSalary;
     }
 
     public void showCoverageAreas() {
