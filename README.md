@@ -1,2 +1,20 @@
-# management_control
-Console application for managing the management of a chain of restaurants. Used: Java, PostgreSQL and JDBC to communicate with the database.
+# Control of the management of a chain of restaurants
+
+Console application for restaurant chain management 
+- Control of the management
+- Workers management
+- Budget allocation
+
+## Roles
+- Director
+- HR
+- Manager
+- Marketing
+- Worker
+
+## 🛠 Used
+<div align="center">
+	<code><img height="50" src="https://user-images.githubusercontent.com/25181517/117201156-9a724800-adec-11eb-9a9d-3cd0f67da4bc.png" alt="Java" title="Java" /></code>
+	<code><img height="50" src="https://user-images.githubusercontent.com/25181517/117208740-bfb78400-adf5-11eb-97bb-09072b6bedfc.png" alt="PostgreSQL" title="PostgreSQL" /></code>
+</div>
+(Use JDBC to connect to DB)
