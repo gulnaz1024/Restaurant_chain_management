@@ -2,13 +2,13 @@
 **by Gimaletdinova Gulnaz** 
 **MAT-20**
 
-## About 
+## 💬 About 
 This is console application for restaurant chain management. Allows you to do:
 - Control of the management
 - Workers management
 - Budget allocation
 
-## Roles
+## 👩‍💻 Roles
 - Director
 - HR
 - Manager
